@@ -1,9 +1,9 @@
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 
-import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosListComponent } from './containers/cursos-list/cursos-list.component';
+import { CursosRoutingModule } from './cursos-routing.module';
 
 
 @NgModule({
@@ -13,6 +13,7 @@ import { CursosListComponent } from './containers/cursos-list/cursos-list.compon
   imports: [
     CommonModule,
     CursosRoutingModule,
+    MatTableModule
   ]
 })
 export class CursosModule { }
