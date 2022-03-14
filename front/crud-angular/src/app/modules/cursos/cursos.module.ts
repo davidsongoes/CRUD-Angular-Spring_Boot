@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { MaterialModule } from './../../shared/material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,6 @@ import { CursosRoutingModule } from './cursos-routing.module';
 
 @NgModule({
   declarations: [CursosListComponent],
-  imports: [CommonModule, CursosRoutingModule, MaterialModule],
+  imports: [CommonModule, CursosRoutingModule, MaterialModule, SharedModule],
 })
 export class CursosModule {}

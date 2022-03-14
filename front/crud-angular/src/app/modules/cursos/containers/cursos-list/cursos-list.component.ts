@@ -6,7 +6,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Curso } from 'src/app/models/curso.model';
 import { CursosService } from 'src/app/services/cursos.service';
 
@@ -29,8 +30,16 @@ export class CursosListComponent implements OnInit {
   cursos$: Observable<Curso[]>;
 
   constructor(private cursoService: CursosService) {
-    this.cursos$ = this.cursoService.getAll();
+    this.cursos$ = this.cursoService.getAll().pipe(
+      catchError((error) => {
+        console.log(error);
+        return of([]);
+      })
+    );
   }
 
   ngOnInit(): void {}
+  open() {
+    return 'ola';
+  }
 }

@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ToolbarComponent, LayoutComponent, FooterbarComponent],
-  imports: [CommonModule, MaterialModule, RouterModule],
+  imports: [CommonModule, RouterModule, MaterialModule],
   exports: [LayoutComponent],
 })
 export class LayoutModule {}
