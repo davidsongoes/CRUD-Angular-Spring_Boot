@@ -1,3 +1,25 @@
-<mat-toolbar color="primary">
-  <span>CRUD -  Angular + Spring</span>
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <div style="display: flex; justify-content: space-between; width: 100%">
+      <div><span>CRUD - Angular + Spring Boot</span></div>
+      <div style="display: flex; justify-content: end; width: 100%; gap: 15px">
+        <a
+          mat-raised-button
+          color="accent"
+          routerLinkActive="active"
+          routerLink="home"
+        >
+          Dashboard
+        </a>
+        <a
+          mat-raised-button
+          color="accent"
+          routerLinkActive="active"
+          routerLink="cursos"
+        >
+          Curso
+        </a>
+      </div>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>

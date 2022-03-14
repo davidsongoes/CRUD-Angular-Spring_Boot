@@ -5,10 +5,11 @@ import { NgModule } from '@angular/core';
 import { FooterbarComponent } from './footerbar/footerbar.component';
 import { LayoutComponent } from './layout.component';
 import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ToolbarComponent, LayoutComponent, FooterbarComponent],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, RouterModule],
   exports: [LayoutComponent],
 })
 export class LayoutModule {}
