@@ -19,7 +19,15 @@
         <!-- Name Column -->
         <ng-container matColumnDef="category">
           <th mat-header-cell *matHeaderCellDef>Category</th>
-          <td mat-cell *matCellDef="let curso">{{ curso.category }}</td>
+          <td mat-cell *matCellDef="let curso">
+            <mat-icon
+              [matTooltip]="curso.category"
+              matTooltipPosition="right"
+              aria-hidden="false"
+              aria-label="Categoria do Curso"
+              >{{ curso.category | category }}</mat-icon
+            >
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
