@@ -6,10 +6,8 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
   templateUrl: './generic-snack-bar.component.html',
   styleUrls: ['./generic-snack-bar.component.scss'],
 })
-export class GenericSnackBarComponent implements OnInit {
+export class GenericSnackBarComponent {
   constructor(private _snackBar: MatSnackBar) {}
-
-  ngOnInit(): void {}
 
   openSnackBar(message: string, action: string, config?: MatSnackBarConfig) {
     this._snackBar.open(message, action, config);

@@ -1,3 +1,5 @@
+import { GenericDialogModel } from './../../../../shared/generic-dialog/generic.model';
+import { GenericDialogComponent } from './../../../../shared/generic-dialog/generic-dialog.component';
 import { MatSnackBarConfig } from '@angular/material/snack-bar';
 import {
   animate,
@@ -12,6 +14,7 @@ import { catchError } from 'rxjs/operators';
 import { Curso } from 'src/app/models/curso.model';
 import { CursosService } from 'src/app/services/cursos.service';
 import { GenericSnackBarComponent } from 'src/app/shared/generic-snack-bar/generic-snack-bar.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'crud-cursos-list',
@@ -33,12 +36,17 @@ export class CursosListComponent implements OnInit {
   @ViewChild('snackBar')
   snackBar!: GenericSnackBarComponent;
 
-  constructor(private cursoService: CursosService) {
+  constructor(private cursoService: CursosService, public dialog: MatDialog) {
     this.cursos$ = this.cursoService.getAll().pipe(
       catchError((error) => {
         console.log(error);
-        this.open(`${error.status} - ${error.statusText}`, 'fechar', {
+        this.openSnackBar(`${error.status} - ${error.statusText}`, 'fechar', {
           duration: 5000,
+        });
+        this.openDialog({
+          title: 'Ops! Aconteceu um erro inesperado',
+          content: `${error.status} - ${error.statusText}`,
+          buttonTitle: 'Fechar',
         });
         return of([]);
       })
@@ -46,7 +54,14 @@ export class CursosListComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  open(message: string, action: string, config: MatSnackBarConfig) {
+
+  openSnackBar(message: string, action: string, config: MatSnackBarConfig) {
     this.snackBar.openSnackBar(message, action, config);
+  }
+
+  openDialog(data: GenericDialogModel) {
+    this.dialog.open(GenericDialogComponent, {
+      data: data,
+    });
   }
 }
