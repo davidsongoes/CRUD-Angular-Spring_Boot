@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatSnackBarModule,
     MatFormFieldModule,
+    MatIconModule,
   ],
   exports: [
     MatToolbarModule,
@@ -29,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatIconModule,
   ],
 })
 export class MaterialModule {}
