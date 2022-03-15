@@ -47,6 +47,7 @@ export class CursosListComponent implements OnInit {
           title: 'Ops! Aconteceu um erro inesperado',
           content: `${error.status} - ${error.statusText}`,
           buttonTitle: 'Fechar',
+          icon: 'report_problem',
         });
         return of([]);
       })
