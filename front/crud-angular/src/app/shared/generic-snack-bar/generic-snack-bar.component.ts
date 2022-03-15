@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'crud-generic-snack-bar',
@@ -11,7 +11,7 @@ export class GenericSnackBarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+  openSnackBar(message: string, action: string, config?: MatSnackBarConfig) {
+    this._snackBar.open(message, action, config);
   }
 }

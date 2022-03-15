@@ -1,3 +1,4 @@
+import { MatSnackBarConfig } from '@angular/material/snack-bar';
 import {
   animate,
   state,
@@ -5,11 +6,12 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Curso } from 'src/app/models/curso.model';
 import { CursosService } from 'src/app/services/cursos.service';
+import { GenericSnackBarComponent } from 'src/app/shared/generic-snack-bar/generic-snack-bar.component';
 
 @Component({
   selector: 'crud-cursos-list',
@@ -28,18 +30,23 @@ import { CursosService } from 'src/app/services/cursos.service';
 export class CursosListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'category'];
   cursos$: Observable<Curso[]>;
+  @ViewChild('snackBar')
+  snackBar!: GenericSnackBarComponent;
 
   constructor(private cursoService: CursosService) {
     this.cursos$ = this.cursoService.getAll().pipe(
       catchError((error) => {
         console.log(error);
+        this.open(`${error.status} - ${error.statusText}`, 'fechar', {
+          duration: 5000,
+        });
         return of([]);
       })
     );
   }
 
   ngOnInit(): void {}
-  open() {
-    return 'ola';
+  open(message: string, action: string, config: MatSnackBarConfig) {
+    this.snackBar.openSnackBar(message, action, config);
   }
 }
