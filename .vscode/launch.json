@@ -2,11 +2,19 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Spring Boot-Application<crud-spring>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "mainClass": "com.crud.Application",
+=======
+            "name": "Spring Boot-CrudSpringApplication<crud-spring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.spring.crudspring.CrudSpringApplication",
+>>>>>>> 1ed5882d3ea89cc577e8cb2e7a404fce643c8d4b
             "projectName": "crud-spring",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
